@@ -1,0 +1,22 @@
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Título</th>
+                        <th scope="col">Contenido</th>
+                        <th scope="col">Autor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let post of posts.posts">
+                        <td>{{post.title}}</td>
+                        <td>{{post.content}}</td>
+                        <td>{{post.author.email}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

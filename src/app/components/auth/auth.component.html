@@ -1,0 +1,61 @@
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-4 mx-auto" *ngIf="divSignUp">
+            <div class="card">
+                <div class="card-header text-center text-uppercase">
+                    Registro
+                </div>
+                <div class="card-body">
+                    <form #frmsignup (submit)="signUp()">
+                        <div class="form-group">
+                            <input type="text" [(ngModel)]="user.name" name="name" class="form-control"
+                                placeholder="Ingrese su nombre" autofocus required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" [(ngModel)]="user.email" name="email" class="form-control"
+                                placeholder="Ingrese su correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" [(ngModel)]="user.password" name="password" class="form-control"
+                                placeholder="Ingrese una contraseña" required>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success btn-block">Registrarse</button>
+                        </div>
+                        <div class="form-group text-center">
+                            <a class="link" style="cursor: pointer;" (click)="btnSignIn()">Iniciar sesión</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mx-auto" *ngIf="divSignIn">
+            <div class="card">
+                <div class="card-header text-center text-uppercase">
+                    Inicio de sesión
+                </div>
+                <div class="card-body">
+                    <form #signinForm="ngForm" (ngSubmit)="signIn(signinForm)">
+                        <div class="form-group">
+                            <input #emailControl="ngModel" type="text" [(ngModel)]="user.email" name="email"
+                                class="form-control" placeholder="* Ingrese su correo electrónico" required>
+                        </div>
+                        <div class="form-group">
+                            <input #password="ngModel" type="password" [(ngModel)]="user.password" name="password"
+                                class="form-control" placeholder="* Ingrese una contraseña" required minlength="5">
+                        </div>
+                        <div *ngIf="mostrarError">
+                            <p style="color: red;">* Campos requeridos</p>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success btn-block">Iniciar sesión</button>
+                        </div>
+                        <div class="form-group text-center">
+                            <a class="link" style="cursor: pointer;" (click)="btnSignUp()">Registrarse</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
